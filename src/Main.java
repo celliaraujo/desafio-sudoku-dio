@@ -45,6 +45,9 @@ public class Main {
                     =============================================""");
             System.out.print("O que você deseja fazer: ");
             opcao = scan.nextInt();
+            String posX;
+            String posY;
+            String coordenada;
 
             switch (opcao){
                 case 1:
@@ -52,14 +55,38 @@ public class Main {
                     break;
                 case 2:
                     System.out.print("Digite a posição horizontal (0 a 8): ");
-                    String posX = scan.next();
+                    posX = scan.next();
                     System.out.print("Digite a posição vertical (0 a 8): ");
-                    String posY = scan.next();
+                    posY = scan.next();
                     System.out.print("Digite o número (1 a 9): ");
                     int numero = scan.nextInt();
-
-                    String coordenada = posX + "," + posY;
+                    coordenada = posX + "," + posY;
+                    tabuleiro.inserirNumero(coordenada, numero);
                     break;
+                case 3:
+                    System.out.print("Digite a posição horizontal (0 a 8): ");
+                    posX = scan.next();
+                    System.out.print("Digite a posição vertical (0 a 8): ");
+                    posY = scan.next();
+                    coordenada = posX + "," + posY;
+                    tabuleiro.removerNumero(coordenada);
+                    break;
+                case 4:
+                    tabuleiro.mostrarJogo();
+                    break;
+                case 5:
+                    tabuleiro.verificarStatusJogo();
+                    break;
+                case 6:
+                    tabuleiro.recomecarJogo();
+                    break;
+                case 7:
+                    tabuleiro.finalizarJogo();
+                case 8:
+                    System.out.println("Aplicação está sendo encerrada...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
             }
 
 

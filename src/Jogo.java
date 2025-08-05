@@ -30,6 +30,20 @@ public class Jogo {
         }
     }
 
+    public void removerNumero(String coordenada){
+        for (Espaco espaco : espacos
+        ) {
+            if(espaco.getCoordenada().equals(coordenada)){
+                if(espaco.isFixo()){
+                    System.out.println("Número não pode ser removido!\n");
+                    return;
+                }
+                if(espaco.getNumeroAtual() != 0) espaco.setNumero(0);
+                else System.out.println("Não há número para remover neste espaço.");
+            }
+        }
+    }
+
     public void inserirNumero(String coordenada, Integer numero){
         for (Espaco espaco : espacos
              ) {
@@ -97,5 +111,19 @@ public class Jogo {
         }
         System.out.println("Recomeçando o Jogo...");
         mostrarJogo();
+    }
+
+    public void finalizarJogo(){
+        int erros = 0;
+        for (Espaco espaco : espacos
+        ) {
+            if(!espaco.isFixo()){
+                if(espaco.getNumeroAtual() != espaco.getNumeroEsperado()){
+                    erros++;
+                }
+            }
+        }
+        if(erros > 0) System.out.printf("O jogo possui erros! Preencha os espaços \ncom os números corretos para finalizar!\n");
+        else System.out.println("Parabéns! Jogo concluído!");
     }
 }
