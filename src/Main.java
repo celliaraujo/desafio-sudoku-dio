@@ -81,9 +81,13 @@ public class Main {
                     tabuleiro.recomecarJogo();
                     break;
                 case 7:
-                    tabuleiro.finalizarJogo();
+                    opcao = tabuleiro.finalizarJogo();
+                    break;
                 case 8:
                     System.out.println("Aplicação está sendo encerrada...");
+                    break;
+                case 9:
+                    tabuleiro.testePreencherJogo();
                     break;
                 default:
                     System.out.println("Opção inválida!");

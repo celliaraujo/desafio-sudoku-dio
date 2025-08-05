@@ -113,7 +113,7 @@ public class Jogo {
         mostrarJogo();
     }
 
-    public void finalizarJogo(){
+    public int finalizarJogo(){
         int erros = 0;
         for (Espaco espaco : espacos
         ) {
@@ -124,6 +124,17 @@ public class Jogo {
             }
         }
         if(erros > 0) System.out.printf("O jogo possui erros! Preencha os espaços \ncom os números corretos para finalizar!\n");
-        else System.out.println("Parabéns! Jogo concluído!");
+        else {
+            System.out.println("Parabéns! Jogo concluído!");
+            return 8;
+        }
+        return 0;
+    }
+
+    public void testePreencherJogo(){
+        for (Espaco espaco : espacos
+        ) {
+            espaco.setNumero(espaco.getNumeroEsperado());
+        }
     }
 }
