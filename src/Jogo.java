@@ -9,6 +9,7 @@ public class Jogo {
 
     public void iniciarJogo(){
         int quebraLinha = 0;
+        System.out.println("Iniciando o jogo...");
         for (Espaco espaco : espacos
              ) {
             if (espaco.isFixo()) System.out.printf("[ %s ]", espaco.getNumeroAtual());
